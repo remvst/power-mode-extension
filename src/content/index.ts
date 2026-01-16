@@ -47,10 +47,6 @@ function shake(element: HTMLElement) {
   }, t);
 }
 
-window.addEventListener("keydown", () => shake(document.body), {
-  capture: true,
-});
-
 function shakeElement(element: HTMLElement | null) {
   while (element) {
     const style = window.getComputedStyle(element);
@@ -175,3 +171,27 @@ function addParticles(center: Point) {
 
   frame();
 }
+
+window.addEventListener(
+  "keydown",
+  () => {
+    const activeElement = document.activeElement as HTMLElement;
+    if (
+      activeElement instanceof HTMLInputElement ||
+      activeElement instanceof HTMLTextAreaElement ||
+      activeElement.isContentEditable
+    ) {
+      const rect = activeElement.getBoundingClientRect();
+
+      addParticles({
+        x: rect.left + randInt(0, rect.width),
+        y: rect.top + randInt(0, rect.height),
+      });
+    }
+
+    shake(document.body);
+  },
+  {
+    capture: true,
+  }
+);
