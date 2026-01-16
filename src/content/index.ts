@@ -78,6 +78,7 @@ window.addEventListener("click", (e) => shakeElement(e.target as HTMLElement), {
 window.addEventListener(
   "click",
   (e) => {
+    if (DISABLED) return;
     addParticles({ x: e.pageX, y: e.pageY });
   },
   {
@@ -175,6 +176,8 @@ function addParticles(center: Point) {
 window.addEventListener(
   "keydown",
   () => {
+    if (DISABLED) return;
+
     const activeElement = document.activeElement as HTMLElement;
     if (
       activeElement instanceof HTMLInputElement ||
