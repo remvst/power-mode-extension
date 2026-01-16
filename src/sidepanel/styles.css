@@ -31,3 +31,13 @@ label {
 input[type="range"] {
   width: 100%;
 }
+
+footer {
+  margin-top: 24px;
+  font-size: 0.875rem;
+  color: #999;
+}
+
+footer a {
+  color: #666;
+}
