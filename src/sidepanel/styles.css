@@ -15,6 +15,9 @@ body {
   padding: 16px;
   background: #fff;
   color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -106,7 +109,8 @@ button:hover {
 }
 
 footer {
-  margin-top: 24px;
+  margin-top: auto;
+  padding-top: 24px;
   font-size: 0.875rem;
   color: #999;
 }
