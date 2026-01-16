@@ -9,10 +9,20 @@
   <body>
     <div id="app">
       <h1>Power Mode</h1>
-      <label for="power-level">Power Level: <span id="power-value">20</span></label>
-      <input type="range" id="power-level" min="0" max="100" value="20" />
-      <label for="duration">Duration: <span id="duration-value">200</span>ms</label>
-      <input type="range" id="duration" min="50" max="1000" value="200" />
+      <div class="slider-group">
+        <label for="power-level">Power Level:</label>
+        <div class="slider-row">
+          <input type="range" id="power-level" min="0" max="100" value="20" />
+          <input type="number" id="power-value" min="0" max="100" value="20" />
+        </div>
+      </div>
+      <div class="slider-group">
+        <label for="duration">Shake Duration (ms):</label>
+        <div class="slider-row">
+          <input type="range" id="duration" min="50" max="1000" value="200" />
+          <input type="number" id="duration-value" min="50" max="1000" value="200" />
+        </div>
+      </div>
       <button id="reset">Reset to Defaults</button>
     </div>
     <footer>Made by <a href="https://remvst.com" target="_blank">Remi Vansteelandt</a></footer>
