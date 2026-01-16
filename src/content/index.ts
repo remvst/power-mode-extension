@@ -24,8 +24,6 @@ function shake() {
     setTimeout(() => {
       const x = Math.random() * AMPLITUDE - AMPLITUDE / 2;
       const y = Math.random() * AMPLITUDE - AMPLITUDE / 2;
-
-      // document.body.classList.add('shaken');
       document.body.style.transform = `translate(${x}px, ${y}px)`;
     }, t);
   }
