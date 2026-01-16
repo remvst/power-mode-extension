@@ -24,8 +24,19 @@
         </div>
       </div>
       <button id="reset">Reset to Defaults</button>
+
+      <div class="blocked-domains">
+        <label>Disabled Domains:</label>
+        <div class="domain-input-row">
+          <input type="text" id="domain-input" placeholder="example.com" />
+          <button id="add-domain">Add</button>
+        </div>
+        <ul id="domain-list"></ul>
+      </div>
     </div>
-    <footer>Made by <a href="https://remvst.com" target="_blank">Remi Vansteelandt</a></footer>
+    <footer>
+      Shamelessly built by <a href="https://remvst.com" target="_blank">Rémi Vansteelandt</a>
+    </footer>
     <script type="module" src="./index.ts"></script>
   </body>
 </html>

@@ -3,10 +3,19 @@ import "./content.css";
 
 let AMPLITUDE = DEFAULTS.powerLevel;
 let DURATION = DEFAULTS.duration;
+let DISABLED = false;
 
-chrome.storage.local.get(["powerLevel", "duration"], (result) => {
+function isCurrentDomainBlocked(blockedDomains: string[]): boolean {
+  const currentDomain = window.location.hostname.toLowerCase();
+  return blockedDomains.some(
+    (domain) => currentDomain === domain || currentDomain.endsWith("." + domain)
+  );
+}
+
+chrome.storage.local.get(["powerLevel", "duration", "blockedDomains"], (result) => {
   AMPLITUDE = result.powerLevel ?? DEFAULTS.powerLevel;
   DURATION = result.duration ?? DEFAULTS.duration;
+  DISABLED = isCurrentDomainBlocked(result.blockedDomains ?? []);
 });
 
 chrome.storage.onChanged.addListener((changes) => {
@@ -16,9 +25,14 @@ chrome.storage.onChanged.addListener((changes) => {
   if (changes.duration) {
     DURATION = changes.duration.newValue;
   }
+  if (changes.blockedDomains) {
+    DISABLED = isCurrentDomainBlocked(changes.blockedDomains.newValue ?? []);
+  }
 });
 
 function shake(element: HTMLElement) {
+  if (DISABLED) return;
+
   let t = 0;
   for (; t < DURATION; t += 1000 / 60) {
     setTimeout(() => {
