@@ -13,8 +13,11 @@ const packageJson: PackageJson = JSON.parse(readFileSync("package.json", "utf-8"
 const manifestPath = "dist/manifest.json";
 const manifest: Manifest = JSON.parse(readFileSync(manifestPath, "utf-8"));
 
-manifest.version = packageJson.version;
+const buildNumber = process.env.GITHUB_RUN_NUMBER;
+const version = buildNumber ? `${packageJson.version}.${buildNumber}` : packageJson.version;
+
+manifest.version = version;
 
 writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
 
-console.log(`Synced version ${packageJson.version} to manifest.json`);
+console.log(`Synced version ${version} to manifest.json`);
