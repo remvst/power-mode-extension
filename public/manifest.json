@@ -8,8 +8,8 @@
     "default_title": "Open Power Mode"
   },
   "background": {
-    "service_worker": "background.js",
-    "scripts": ["background.js"]
+    "service_worker": "background/background.js",
+    "scripts": ["background/background.js"]
   },
   "content_scripts": [
     {

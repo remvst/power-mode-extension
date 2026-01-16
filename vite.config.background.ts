@@ -6,7 +6,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   build: {
-    outDir: "dist",
+    outDir: "dist/background",
     emptyOutDir: false,
     copyPublicDir: false,
     lib: {
