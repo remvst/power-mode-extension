@@ -12,7 +12,8 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "test": "npm run format:check && npm run typecheck",
-    "prepare": "husky"
+    "prepare": "husky",
+    "zip": "rm extension.zip && cd dist && zip -r ../extension.zip ."
   },
   "devDependencies": {
     "@types/chrome": "^0.0.268",

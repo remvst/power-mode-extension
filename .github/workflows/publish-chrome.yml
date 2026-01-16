@@ -18,11 +18,8 @@ jobs:
           cache: npm
 
       - run: npm ci
-
       - run: npm run build
-
-      - name: Zip extension
-        run: cd dist && zip -r ../extension.zip .
+      - run: npm run zip
 
       - name: Upload to Chrome Web Store
         uses: mnao305/chrome-extension-upload@v5.0.0
