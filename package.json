@@ -4,9 +4,9 @@
   "description": "Power Mode browser extension",
   "type": "module",
   "scripts": {
-    "start": "concurrently \"vite build --watch\" \"tsc --noEmit --watch\"",
-    "dev": "vite build --watch",
-    "build": "vite build",
+    "start": "concurrently \"npm run dev\" \"tsc --noEmit --watch\"",
+    "dev": "concurrently \"vite build --watch\" \"vite build --config vite.config.content.ts --watch\"",
+    "build": "vite build && vite build --config vite.config.content.ts",
     "build:chrome": "vite build --mode chrome",
     "build:firefox": "vite build --mode firefox",
     "format": "prettier --write .",

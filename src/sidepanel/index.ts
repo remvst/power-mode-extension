@@ -1,14 +1,38 @@
-const slider = document.getElementById("power-level") as HTMLInputElement;
-const valueDisplay = document.getElementById("power-value")!;
+import { DEFAULTS } from "../shared/defaults";
 
-chrome.storage.local.get("powerLevel", (result) => {
-  const level = result.powerLevel ?? 50;
-  slider.value = String(level);
-  valueDisplay.textContent = String(level);
+const powerSlider = document.getElementById("power-level") as HTMLInputElement;
+const powerValue = document.getElementById("power-value")!;
+const durationSlider = document.getElementById("duration") as HTMLInputElement;
+const durationValue = document.getElementById("duration-value")!;
+const resetButton = document.getElementById("reset")!;
+
+function updateUI(powerLevel: number, duration: number) {
+  powerSlider.value = String(powerLevel);
+  powerValue.textContent = String(powerLevel);
+  durationSlider.value = String(duration);
+  durationValue.textContent = String(duration);
+}
+
+chrome.storage.local.get(["powerLevel", "duration"], (result) => {
+  updateUI(result.powerLevel ?? DEFAULTS.powerLevel, result.duration ?? DEFAULTS.duration);
 });
 
-slider.addEventListener("input", () => {
-  const level = Number(slider.value);
-  valueDisplay.textContent = String(level);
+powerSlider.addEventListener("input", () => {
+  const level = Number(powerSlider.value);
+  powerValue.textContent = String(level);
   chrome.storage.local.set({ powerLevel: level });
+});
+
+durationSlider.addEventListener("input", () => {
+  const duration = Number(durationSlider.value);
+  durationValue.textContent = String(duration);
+  chrome.storage.local.set({ duration });
+});
+
+resetButton.addEventListener("click", () => {
+  updateUI(DEFAULTS.powerLevel, DEFAULTS.duration);
+  chrome.storage.local.set({
+    powerLevel: DEFAULTS.powerLevel,
+    duration: DEFAULTS.duration,
+  });
 });

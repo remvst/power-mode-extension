@@ -9,8 +9,11 @@
   <body>
     <div id="app">
       <h1>Power Mode</h1>
-      <label for="power-level">Power Level: <span id="power-value">50</span></label>
-      <input type="range" id="power-level" min="0" max="100" value="50" />
+      <label for="power-level">Power Level: <span id="power-value">20</span></label>
+      <input type="range" id="power-level" min="0" max="100" value="20" />
+      <label for="duration">Duration: <span id="duration-value">200</span>ms</label>
+      <input type="range" id="duration" min="50" max="1000" value="200" />
+      <button id="reset">Reset to Defaults</button>
     </div>
     <script type="module" src="./index.ts"></script>
   </body>

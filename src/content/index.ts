@@ -1,18 +1,27 @@
-let AMPLITUDE = 50;
+import { DEFAULTS } from "../shared/defaults";
+import "./content.css";
 
-chrome.storage.local.get("powerLevel", (result) => {
-  AMPLITUDE = result.powerLevel ?? 50;
+let AMPLITUDE = DEFAULTS.powerLevel;
+let DURATION = DEFAULTS.duration;
+
+chrome.storage.local.get(["powerLevel", "duration"], (result) => {
+  AMPLITUDE = result.powerLevel ?? DEFAULTS.powerLevel;
+  DURATION = result.duration ?? DEFAULTS.duration;
 });
 
 chrome.storage.onChanged.addListener((changes) => {
   if (changes.powerLevel) {
     AMPLITUDE = changes.powerLevel.newValue;
   }
+  if (changes.duration) {
+    DURATION = changes.duration.newValue;
+  }
 });
 
 function shake() {
+  const durationSec = DURATION / 1000;
   let t = 0;
-  for (; t < 0.2; t += 1 / 60) {
+  for (; t < durationSec; t += 1 / 60) {
     setTimeout(() => {
       const x = Math.random() * AMPLITUDE - AMPLITUDE / 2;
       const y = Math.random() * AMPLITUDE - AMPLITUDE / 2;
