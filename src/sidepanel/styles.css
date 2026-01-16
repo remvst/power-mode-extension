@@ -18,6 +18,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -113,6 +115,7 @@ footer {
   padding-top: 24px;
   font-size: 0.875rem;
   color: #999;
+  text-align: center;
 }
 
 footer a {

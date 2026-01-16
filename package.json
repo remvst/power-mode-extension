@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "concurrently \"npm run dev\" \"tsc --noEmit --watch\"",
-    "dev": "concurrently \"vite build --watch\" \"vite build --config vite.config.content.ts --watch\"",
+    "dev": "concurrently \"vite build --watch\" \"vite build --config vite.config.content.ts --watch\" \"vite build --config vite.config.background.ts --watch\"",
     "clean": "rm -rf dist",
-    "build": "npm run clean && vite build && vite build --config vite.config.content.ts",
+    "build": "npm run clean && vite build && vite build --config vite.config.content.ts && vite build --config vite.config.background.ts",
     "build:chrome": "vite build --mode chrome",
     "build:firefox": "vite build --mode firefox",
     "format": "prettier --write .",

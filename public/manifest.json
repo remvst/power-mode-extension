@@ -4,6 +4,13 @@
   "version": "1.0.0",
   "description": "Power Mode browser extension",
   "permissions": ["sidePanel", "storage"],
+  "action": {
+    "default_title": "Open Power Mode"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
