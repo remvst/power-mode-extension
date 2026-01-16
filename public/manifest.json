@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Power Mode",
   "version": "1.0.0",
-  "description": "Power Mode browser extension",
+  "description": "Browsing the web is epic. It should feel epic.",
   "permissions": ["sidePanel", "storage", "contextMenus"],
   "icons": {
     "32": "icons/32.png",
