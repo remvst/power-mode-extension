@@ -4,11 +4,12 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   build: {
     outDir: "dist/content-script",
     emptyOutDir: false,
     copyPublicDir: false,
+    sourcemap: mode === "development",
     lib: {
       entry: resolve(__dirname, "src/content/index.ts"),
       name: "content",
@@ -21,4 +22,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

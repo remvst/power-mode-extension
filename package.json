@@ -5,11 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "npm run clean && concurrently \"npm run dev\" \"tsc --noEmit --watch\"",
-    "dev": "concurrently \"vite build --config vite.config.sidepanel.ts --watch\" \"vite build --config vite.config.content.ts --watch\" \"vite build --config vite.config.background.ts --watch\"",
+    "dev": "concurrently \"vite build --config vite.config.sidepanel.ts --mode development --watch\" \"vite build --config vite.config.content.ts --mode development --watch\" \"vite build --config vite.config.background.ts --mode development --watch\"",
     "clean": "rm -rf dist",
     "build": "npm run clean && vite build --config vite.config.sidepanel.ts && vite build --config vite.config.content.ts && vite build --config vite.config.background.ts && tsx scripts/sync-version.ts",
-    "build:chrome": "vite build --config vite.config.sidepanel.ts --mode chrome",
-    "build:firefox": "vite build --config vite.config.sidepanel.ts --mode firefox",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",

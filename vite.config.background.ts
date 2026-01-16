@@ -4,11 +4,12 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   build: {
     outDir: "dist/background",
     emptyOutDir: false,
     copyPublicDir: false,
+    sourcemap: mode === "development",
     lib: {
       entry: resolve(__dirname, "src/background/index.ts"),
       name: "background",
@@ -16,4 +17,4 @@ export default defineConfig({
       fileName: () => "background.js",
     },
   },
-});
+}));

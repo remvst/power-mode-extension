@@ -4,12 +4,13 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   root: "src",
   base: "./",
   build: {
     outDir: "../dist",
     emptyOutDir: false,
+    sourcemap: mode === "development",
     rollupOptions: {
       input: {
         sidepanel: resolve(__dirname, "src/sidepanel/sidepanel.html"),
@@ -26,4 +27,4 @@ export default defineConfig({
     },
   },
   publicDir: "../public",
-});
+}));
