@@ -1,7 +1,6 @@
-body {
-  /*transition: transform 0.1s ease-out;*/
-}
-
-body.shaken {
-  transition: none;
+.particles {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999999;
 }
