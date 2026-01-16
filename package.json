@@ -12,13 +12,15 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
-    "test": "npm run format:check && npm run typecheck"
+    "test": "npm run format:check && npm run typecheck",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.268",
     "@types/node": "^25.0.9",
     "@types/webextension-polyfill": "^0.10.7",
     "concurrently": "^8.2.2",
+    "husky": "^9.1.7",
     "prettier": "^3.3.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.11"
