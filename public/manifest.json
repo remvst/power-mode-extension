@@ -3,7 +3,7 @@
   "name": "Power Mode",
   "version": "1.0.0",
   "description": "Power Mode browser extension",
-  "permissions": ["sidePanel"],
+  "permissions": ["sidePanel", "storage"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],

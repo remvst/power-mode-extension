@@ -9,7 +9,7 @@ body {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Segoe UI',
+    "Segoe UI",
     Roboto,
     sans-serif;
   padding: 16px;
@@ -22,6 +22,12 @@ h1 {
   margin-bottom: 8px;
 }
 
-p {
+label {
+  display: block;
+  margin-bottom: 8px;
   color: #666;
+}
+
+input[type="range"] {
+  width: 100%;
 }
