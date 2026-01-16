@@ -3,7 +3,7 @@
   "name": "Power Mode",
   "version": "1.0.0",
   "description": "Power Mode browser extension",
-  "permissions": ["sidePanel", "storage"],
+  "permissions": ["sidePanel", "storage", "contextMenus"],
   "action": {
     "default_title": "Open Power Mode"
   },
