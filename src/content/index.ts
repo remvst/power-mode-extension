@@ -18,21 +18,36 @@ chrome.storage.onChanged.addListener((changes) => {
   }
 });
 
-function shake() {
+function shake(element: HTMLElement) {
   let t = 0;
   for (; t < DURATION; t += 1000 / 60) {
     setTimeout(() => {
       const x = Math.random() * AMPLITUDE - AMPLITUDE / 2;
       const y = Math.random() * AMPLITUDE - AMPLITUDE / 2;
-      document.body.style.transform = `translate(${x}px, ${y}px)`;
+      element.style.transform = `translate(${x}px, ${y}px)`;
     }, t);
   }
 
   setTimeout(() => {
-    document.body.style.transform = `none`;
+    element.style.transform = `none`;
   }, t);
 }
 
-window.addEventListener("keydown", shake, {
+window.addEventListener("keydown", () => shake(document.body), {
+  capture: true,
+});
+
+function shakeElement(event: MouseEvent) {
+  let element: HTMLElement | null = event.target as HTMLElement;
+  while (element) {
+    const style = window.getComputedStyle(element);
+    if (style.display !== "inline") break;
+    element = element.parentElement;
+  }
+
+  shake(element as HTMLElement);
+}
+
+window.addEventListener("click", shakeElement, {
   capture: true,
 });
