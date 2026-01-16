@@ -24,8 +24,6 @@ chrome.action.onClicked.addListener((tab) => {
 });
 
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.tabs.create({ url: chrome.runtime.getURL("sidepanel/sidepanel.html") });
-
   chrome.contextMenus.removeAll();
   chrome.contextMenus.create({
     id: "power-mode-enable",
