@@ -19,21 +19,20 @@ chrome.storage.onChanged.addListener((changes) => {
 });
 
 function shake() {
-  const durationSec = DURATION / 1000;
   let t = 0;
-  for (; t < durationSec; t += 1 / 60) {
+  for (; t < DURATION; t += 1000 / 60) {
     setTimeout(() => {
       const x = Math.random() * AMPLITUDE - AMPLITUDE / 2;
       const y = Math.random() * AMPLITUDE - AMPLITUDE / 2;
 
       // document.body.classList.add('shaken');
       document.body.style.transform = `translate(${x}px, ${y}px)`;
-    }, t * 1000);
+    }, t);
   }
 
   setTimeout(() => {
     document.body.style.transform = `none`;
-  }, t * 1000);
+  }, t);
 }
 
 window.addEventListener("keydown", shake, {
