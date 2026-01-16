@@ -5,9 +5,10 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  root: 'src',
   base: './',
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
       input: {
@@ -34,5 +35,5 @@ export default defineConfig({
       },
     },
   },
-  publicDir: 'public',
+  publicDir: '../public',
 });
