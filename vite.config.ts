@@ -9,7 +9,7 @@ export default defineConfig({
   base: "./",
   build: {
     outDir: "../dist",
-    emptyOutDir: true,
+    emptyOutDir: false,
     rollupOptions: {
       input: {
         sidepanel: resolve(__dirname, "src/sidepanel/sidepanel.html"),
