@@ -1,5 +1,8 @@
 import { DEFAULTS } from "../shared/defaults";
 
+const versionElement = document.getElementById("version")!;
+versionElement.textContent = chrome.runtime.getManifest().version;
+
 const powerSlider = document.getElementById("power-level") as HTMLInputElement;
 const powerInput = document.getElementById("power-value") as HTMLInputElement;
 const durationSlider = document.getElementById("duration") as HTMLInputElement;

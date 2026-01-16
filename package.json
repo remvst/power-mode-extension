@@ -7,7 +7,7 @@
     "start": "concurrently \"npm run dev\" \"tsc --noEmit --watch\"",
     "dev": "concurrently \"vite build --watch\" \"vite build --config vite.config.content.ts --watch\" \"vite build --config vite.config.background.ts --watch\"",
     "clean": "rm -rf dist",
-    "build": "npm run clean && vite build && vite build --config vite.config.content.ts && vite build --config vite.config.background.ts",
+    "build": "npm run clean && vite build && vite build --config vite.config.content.ts && vite build --config vite.config.background.ts && tsx scripts/sync-version.ts",
     "build:chrome": "vite build --mode chrome",
     "build:firefox": "vite build --mode firefox",
     "format": "prettier --write .",
@@ -23,6 +23,7 @@
     "concurrently": "^8.2.2",
     "husky": "^9.1.7",
     "prettier": "^3.3.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.11"
   }
